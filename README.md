@@ -22,7 +22,7 @@ Para el desarrollo de la actividad, se utilizó un dataset de canciones de Spoti
 | **valence** | `float64` | Mide el carácter emocional positivo de la canción. | 
 | **tempo** | `float64` | Tempo estimado de la canción. | 
 | **time_signature** | `int64` | Compás estimado de la canción, indicando el número de pulsos por compás. | 
-| **track_genre** | `int64` | Género musical asociado a la canción en el dataset. Este campo normalmente proviene del conjunto de datos y no es una característica calculada por el objeto de Audio Features. | 
+| **track_genre** | `str` | Género musical asociado a la canción en el dataset. Este campo normalmente proviene del conjunto de datos y no es una característica calculada por el objeto de Audio Features. | 
 
  > El dataset cuenta con 114000 filas y 21 columnas
 
