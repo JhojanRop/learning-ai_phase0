@@ -5,6 +5,7 @@ description = "Proyecto final de la fase 0 del roadmap de AI"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "jupyterlab>=4.6.0",
     "matplotlib>=3.11.0",
     "pandas>=3.0.3",
 ]
