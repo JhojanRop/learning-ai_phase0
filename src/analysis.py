@@ -26,8 +26,12 @@ class Queries:
         return mean_ms.apply(self._format_duration) if format else mean_ms
 
     def most_danceable_genres(self):
-        mean_danceability = self.df.groupby("track_genre")["danceability"].mean()
-        return mean_danceability.sort_values(ascending=False).head(10)
+        mean_danceability_group = self.df.groupby("track_genre")["danceability"].mean()
+        mean_danceability = self.df["danceability"].mean()
+        return (
+            mean_danceability,
+            mean_danceability_group.sort_values(ascending=False),
+        )
 
     def most_popular_albums(self):
         return (
