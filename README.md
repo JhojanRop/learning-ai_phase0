@@ -65,3 +65,30 @@ Aquí se especifica con detalle la decisión tomada para cada columna tras la ag
 | **track_genre** | `mode` | Se priorizó la etiqueta de género más popular; en caso de existir más de una, se utiliza el primer índice. | 
 
 Tras la limpieza de los datos, se mantuvieron 81206 registros y 19 columnas.
+
+## Consultas
+Ya con los datos listos, se plantearon las siguientes consultas para los datos:
+
+- Duración promedio de canción por género
+- Géneros más bailables
+- Álbumes más populares
+- Álbumes más largos
+- Distribución de canciones por "mood"
+
+Las consultas se separaron en un [archivo](src/analysis.py) aparte, encapsulándolas en una clase.
+
+### Visualización
+De las consultas creadas se tomaron 3 para graficar:
+- Géneros más bailables
+- Álbumes más populares
+- Distribución de canciones por "mood"
+
+Todas representadas en gráficos de barras horizontales, descartando la opción de un gráfico de donut/pastel para "Distribución de canciones por 'mood'" debido a la ilegibilidad para 8 categorías y porcentajes parecidos.
+> Los graficos se almacenaron en la carpera [outputs](outputs/)
+
+## Hallazgos
+Para finalizar, se obtuvo información relevante de los datos, como:
+- Aunque muchas canciones tengan el mismo nombre y/o artista/s, pueden ser indexadas como tracks diferentes. 
+- Las canciones que más duran en promedio pertenecen a los géneros de `detroid techno`, `minimal techno`, `chigago house`, etc.
+- El género `kids` es el ideal para bailar, acompañado muy de cerca de géneros como `chicago house` el clásico de los clubes y sonidos latinos como el `latin` y `reggaeton`
+- La mayoría de las canciones del dataset tienen un mood triste/melancólico, representando el 24% de los datos, seguido por el mood feliz/energético con el 16.2%.
