@@ -1,22 +1,39 @@
+import pandas as pd
+
+from src.analysis import Queries
+from src.cleaning import clean_df
+from src.graphs import distribution_per_mood, most_danceable_genres, most_popular_albums
+
+
 def main():
     df = pd.read_csv("data/dataset.csv")
     df_grouped = clean_df(df)
 
-    # queries_grouped = Queries(df_grouped)
+    queries_grouped = Queries(df_grouped)
     queries_albums = Queries(df)
 
-    danceability_mean, most_danceability_genres = (
-        # queries_grouped.most_danceable_genres()
-        queries_groupe.most_danceable_genres()
+    mean_danceability, most_danceability_genres = (
+        queries_grouped.most_danceable_genres()
     )
 
-    print(f"Danceability promedio de todas las canciones: {danceability_mean}")
-    print(f"Danceability promedio por genero:\n{most_danceability_genres.head(5)}")
+    most_danceable_genres(
+        mean_danceability,
+        most_danceability_genres,
+        savePath="outputs/most_danceable_genres.png",
+        show=False,
+    )
 
-    most_danceability_genres["pomean"] = (most_danceability_genres.values - danceability_mean)
-    print(f"Danceability promedio por genero:\n{most_danceability_genres.head(5)}")
+    distribution_per_mood(
+        queries_grouped.distribution_per_moods(),
+        savePath="outputs/ditribution_per_mood.png",
+        show=False,
+    )
 
-
+    most_popular_albums(
+        queries_albums.most_popular_albums().head(10),
+        show=False,
+        savePath="outputs/most_popular_albums.png",
+    )
 
 
 if __name__ == "__main__":
